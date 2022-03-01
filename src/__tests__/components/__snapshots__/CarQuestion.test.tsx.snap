@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CarQuestion renders 1`] = `
+<div>
+  <div
+    class="car-question"
+  >
+    <div
+      class="car-question__header"
+    >
+      <div
+        class="car-question__header_name"
+      />
+      <div
+        class="car-question__header_car"
+      >
+         
+      </div>
+    </div>
+    <div
+      class="car-question__time"
+    />
+    <div
+      class="car-question__text"
+    />
+  </div>
+</div>
+`;
+
+exports[`CarQuestion renders with empty object 1`] = `
+<div>
+  <div
+    class="car-question"
+  >
+    <div
+      class="car-question__header"
+    >
+      <div
+        class="car-question__header_name"
+      />
+      <div
+        class="car-question__header_car"
+      >
+         
+      </div>
+    </div>
+    <div
+      class="car-question__time"
+    />
+    <div
+      class="car-question__text"
+    />
+  </div>
+</div>
+`;
+
+exports[`CarQuestion renders with undefined 1`] = `<div />`;
+
+exports[`CarQuestion renders with valid question 1`] = `
+<div>
+  <div
+    class="car-question"
+  >
+    <div
+      class="car-question__header"
+    >
+      <div
+        class="car-question__header_name"
+      >
+        Александра
+      </div>
+      <div
+        class="car-question__header_car"
+      >
+        Volkswagen
+         
+        Polo IV
+      </div>
+    </div>
+    <div
+      class="car-question__time"
+    >
+      12.02.2020T21:13
+    </div>
+    <div
+      class="car-question__text"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+  </div>
+</div>
+`;

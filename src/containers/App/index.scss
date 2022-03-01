@@ -1,0 +1,14 @@
+.app {
+    padding: 0 10% 0 4%;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+div[id='root'] {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}

@@ -1,0 +1,22 @@
+.car-question {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    &__header {
+        display: flex;
+        flex-direction: row;
+        font-weight: 700;
+        &_name {
+        }
+        &_car {
+            margin-left: 20px;
+            color: #923562;
+        }
+    }
+    &__time {
+        color: grey;
+        margin-bottom: 10px;
+    }
+    &__text {
+    }
+}

@@ -1,0 +1,11 @@
+.submit-question-form {
+    width: 50%;
+    @media screen and (max-width: 500px) {
+        width: 100%;
+    }
+}
+
+.MuiFormHelperText-root {
+    text-align: right !important;
+    margin: 0 !important;
+}
