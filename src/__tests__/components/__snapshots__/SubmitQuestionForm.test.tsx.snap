@@ -38,6 +38,7 @@ exports[`SubmitQuestionForm renders 1`] = `
               <input
                 aria-invalid="false"
                 class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                data-testid="user"
                 id="user"
                 name="user"
                 required=""
@@ -89,6 +90,7 @@ exports[`SubmitQuestionForm renders 1`] = `
               <input
                 aria-invalid="false"
                 class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                data-testid="email"
                 id="email"
                 name="email"
                 required=""
@@ -140,6 +142,7 @@ exports[`SubmitQuestionForm renders 1`] = `
               <input
                 aria-invalid="false"
                 class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                data-testid="carBrand"
                 id="carBrand"
                 name="carBrand"
                 required=""
@@ -191,6 +194,7 @@ exports[`SubmitQuestionForm renders 1`] = `
               <input
                 aria-invalid="false"
                 class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                data-testid="carModel"
                 id="carModel"
                 name="carModel"
                 required=""
@@ -243,6 +247,7 @@ exports[`SubmitQuestionForm renders 1`] = `
                 aria-describedby="text-helper-text"
                 aria-invalid="false"
                 class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputMultiline css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input"
+                data-testid="text"
                 id="text"
                 maxlength="500"
                 name="text"

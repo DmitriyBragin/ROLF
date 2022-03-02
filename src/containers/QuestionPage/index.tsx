@@ -9,32 +9,33 @@ import { CarQuestion } from '../../components/CarQuestion';
 
 export const QuestionPage = (props: RouteComponentProps<any>) => {
     const [questions, setQuestions] = useState<Question[]>([]);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [isStartLoading, setIsStartLoading] = useState<boolean>(true);
+    const [isSubmitLoading, setIsSubmitLoading] = useState<boolean>(false);
     useEffect(() => {
         QuestionService.getQuestions().then(resp => {
             if ((resp as FetchError).error) {
                 return;
             }
             setQuestions(resp as Question[]);
-            setIsLoading(false);
+            setIsStartLoading(false);
         });
     }, []);
 
     const submitQuestion = (q: Question): void => {
-        setIsLoading(true);
+        setIsSubmitLoading(true);
         QuestionService.submitQuestion(q).then(resp => {
             if ((resp as FetchError).error) {
-                setIsLoading(false);
+                setIsSubmitLoading(false);
                 return;
             }
             setQuestions(old => [...old, q]);
-            setIsLoading(false);
+            setIsSubmitLoading(false);
         });
     };
 
     return (
         <div className="question-page">
-            {isLoading ? (
+            {isStartLoading ? (
                 <Oval color={'#1940FF'} height={80} width={80} />
             ) : (
                 <div className="question-page__questions">
@@ -43,7 +44,7 @@ export const QuestionPage = (props: RouteComponentProps<any>) => {
                     ))}
                 </div>
             )}
-            <SubmitQuestionForm cb={submitQuestion} />
+            <SubmitQuestionForm cb={submitQuestion} isSubmitLoading={isSubmitLoading} />
         </div>
     );
 };

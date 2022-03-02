@@ -38,11 +38,11 @@ const testQuestions: { [key: string]: Question } = {
     },
     invalidCarBrandQuestion: {
         ...mockQuestions[0],
-        email: 'DimaDimaввв123',
+        carBrand: 'DimaDimaввв123',
     },
     invalidCarModelQuestion: {
         ...mockQuestions[0],
-        email: 'Йцукен',
+        carModel: 'Йцукен',
     },
 };
 
@@ -89,6 +89,51 @@ describe('validateForm', () => {
         expect(helpers.validateForm(testQuestions.validQuestion)).toStrictEqual({
             errors: emptyQuestionObject,
             isValid: true,
+        });
+    });
+    test('not passes if email is incorrect', () => {
+        expect(helpers.validateForm(testQuestions.invalidEmailQuestion)).toStrictEqual({
+            errors: {
+                ...emptyQuestionObject,
+                email: 'Неверный формат email',
+            },
+            isValid: false,
+        });
+    });
+    test('not passes if username is incorrect', () => {
+        expect(helpers.validateForm(testQuestions.invalidNameQuestion)).toStrictEqual({
+            errors: {
+                ...emptyQuestionObject,
+                user: 'Только русские буквы от 2х до 30 символов',
+            },
+            isValid: false,
+        });
+    });
+    test('not passes if text is incorrect', () => {
+        expect(helpers.validateForm(testQuestions.invalidTextQuestion)).toStrictEqual({
+            errors: {
+                ...emptyQuestionObject,
+                text: 'Пожалуйста, заполните это поле',
+            },
+            isValid: false,
+        });
+    });
+    test('not passes if carModel is incorrect', () => {
+        expect(helpers.validateForm(testQuestions.invalidCarModelQuestion)).toStrictEqual({
+            errors: {
+                ...emptyQuestionObject,
+                carModel: 'Только латинские буквы и цифры от 4х до 20 символов',
+            },
+            isValid: false,
+        });
+    });
+    test('not passes if carBrand is incorrect', () => {
+        expect(helpers.validateForm(testQuestions.invalidCarBrandQuestion)).toStrictEqual({
+            errors: {
+                ...emptyQuestionObject,
+                carBrand: 'Только латинские буквы от 4х до 20 символов',
+            },
+            isValid: false,
         });
     });
 });

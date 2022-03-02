@@ -1,6 +1,6 @@
 .submit-question-form {
     width: 50%;
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 1000px) {
         width: 100%;
     }
 }
@@ -8,4 +8,11 @@
 .MuiFormHelperText-root {
     text-align: right !important;
     margin: 0 !important;
+}
+
+.MuiButton-root {
+    float: right;
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+    }
 }

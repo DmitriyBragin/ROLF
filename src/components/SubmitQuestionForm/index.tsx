@@ -3,8 +3,15 @@ import { Question } from '../../utils/types';
 import { Box, Button, Grid, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { getEmptyQuestionObject, isFilled, preparePayload, validateForm } from './helpers';
+import { Oval } from 'react-loader-spinner';
 
-export const SubmitQuestionForm = ({ cb }: { cb: (q: Question) => void }) => {
+export const SubmitQuestionForm = ({
+    cb,
+    isSubmitLoading,
+}: {
+    cb: (q: Question) => void;
+    isSubmitLoading: boolean;
+}) => {
     const [formErrors, setFormErrors] = useState<Question>(getEmptyQuestionObject());
     const [data, setData] = useState<Question>(getEmptyQuestionObject());
     const [canSubmit, setCanSubmit] = useState<boolean>(false);
@@ -51,6 +58,7 @@ export const SubmitQuestionForm = ({ cb }: { cb: (q: Question) => void }) => {
                             onChange={handleChange}
                             error={!!formErrors.user.length}
                             helperText={formErrors.user}
+                            inputProps={{ 'data-testid': 'user' }}
                         />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -64,6 +72,7 @@ export const SubmitQuestionForm = ({ cb }: { cb: (q: Question) => void }) => {
                             error={!!formErrors.email.length}
                             helperText={formErrors.email}
                             onChange={handleChange}
+                            inputProps={{ 'data-testid': 'email' }}
                         />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -77,6 +86,7 @@ export const SubmitQuestionForm = ({ cb }: { cb: (q: Question) => void }) => {
                             error={!!formErrors.carBrand.length}
                             helperText={formErrors.carBrand}
                             onChange={handleChange}
+                            inputProps={{ 'data-testid': 'carBrand' }}
                         />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -90,6 +100,7 @@ export const SubmitQuestionForm = ({ cb }: { cb: (q: Question) => void }) => {
                             error={!!formErrors.carModel.length}
                             helperText={formErrors.carModel}
                             onChange={handleChange}
+                            inputProps={{ 'data-testid': 'carModel' }}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -102,7 +113,7 @@ export const SubmitQuestionForm = ({ cb }: { cb: (q: Question) => void }) => {
                             type="text"
                             id="text"
                             value={data.text}
-                            inputProps={{ maxLength: 500 }}
+                            inputProps={{ maxLength: 500, 'data-testid': 'text' }}
                             error={!!formErrors.text.length}
                             helperText={`${formErrors.text} ${data.text.length}/500`}
                             onChange={handleChange}
@@ -112,9 +123,14 @@ export const SubmitQuestionForm = ({ cb }: { cb: (q: Question) => void }) => {
                 <Button
                     type="submit"
                     variant="contained"
+                    color="success"
                     sx={{ mt: 3, mb: 2 }}
                     disabled={!canSubmit}>
-                    Отправить
+                    {isSubmitLoading ? (
+                        <Oval color={'#1940FF'} height={20} width={20} />
+                    ) : (
+                        'Отправить'
+                    )}
                 </Button>
             </Box>
         </div>

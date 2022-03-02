@@ -30,11 +30,11 @@ export const getEmptyQuestionObject = (): Question => {
 
 const textFollowsRules = (text: string, rules: TextRules): boolean => {
     const invalidChars = text.trim().replaceAll(rules.regexp, '').length;
-    if (!rules.lengthRules) return invalidChars > 0;
+    if (!rules.lengthRules) return invalidChars === 0;
     return (
-        text.trim().length < rules.lengthRules.minChars ||
-        text.trim().length > rules.lengthRules.maxChars ||
-        invalidChars > 0
+        text.trim().length >= rules.lengthRules.minChars &&
+        text.trim().length <= rules.lengthRules.maxChars &&
+        invalidChars === 0
     );
 };
 
@@ -95,7 +95,7 @@ const validateEmailField = (text: string): string => {
         regexp: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g,
     };
     if (!textFollowsRules(text, emailRules)) {
-        res = 'Пожалуйста, заполните это поле';
+        res = 'Неверный формат email';
     }
     return res;
 };
@@ -103,7 +103,9 @@ const validateEmailField = (text: string): string => {
 const filterTextFromSpecificCharacters = (text: string): string => {
     const normalTextRegexp =
         /([\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Punctuation}\p{Join_Control}]+)/gu;
-    return text.match(normalTextRegexp)?.join(' ') as string;
+    let res: string | undefined = text.match(normalTextRegexp)?.join(' ');
+    if (!res) res = '';
+    return res;
 };
 
 const validateTextField = (text: string): string => {
@@ -129,7 +131,7 @@ export const validateForm = (form: Question): FormValidationProps => {
         text: validateTextField(text),
     };
 
-    if (!isNotEmpty(res.errors)) res.isValid = false;
+    if (isNotEmpty(res.errors)) res.isValid = false;
     return res;
 };
 
