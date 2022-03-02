@@ -1,32 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CarQuestion renders 1`] = `
-<div>
-  <div
-    class="car-question"
-  >
-    <div
-      class="car-question__header"
-    >
-      <div
-        class="car-question__header_name"
-      />
-      <div
-        class="car-question__header_car"
-      >
-         
-      </div>
-    </div>
-    <div
-      class="car-question__time"
-    />
-    <div
-      class="car-question__text"
-    />
-  </div>
-</div>
-`;
-
 exports[`CarQuestion renders with empty object 1`] = `
 <div>
   <div
@@ -46,7 +19,9 @@ exports[`CarQuestion renders with empty object 1`] = `
     </div>
     <div
       class="car-question__time"
-    />
+    >
+      N/A
+    </div>
     <div
       class="car-question__text"
     />
@@ -80,7 +55,7 @@ exports[`CarQuestion renders with valid question 1`] = `
     <div
       class="car-question__time"
     >
-      12.02.2020T21:13
+      12.02.2020 в 21:13
     </div>
     <div
       class="car-question__text"
