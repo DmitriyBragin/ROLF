@@ -11,6 +11,13 @@ yarn install
 npm install
 ```
 
+## Environment variables
+
+This application needs following environment variables: REACT_APP_API_QUESTIONS_BASE. As an example:
+```bash
+REACT_APP_API_QUESTIONS_BASE=http://httpbin.org
+```
+
 ## Site running
 
 Site can be run by one of the next commands:
